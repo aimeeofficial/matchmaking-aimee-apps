@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+        <title>Pemilihan Startup</title>
+    </head>
+    <body
+        class="
+            flex flex-col
+            justify-between
+            p-8
+            min-h-screen
+            bg-gradient-to-r
+            from-green-400
+            to-blue-500
+            text-gray-800
+            md:flex-row
+        "
+    >
+        <main class="bg-white p-16 rounded-lg w-auto">
+            <h1 class="text-2xl font-bold mb-8" style="font-family: 'Times New Roman', Times, serif;">
+                Pemilihan Bisnis Model:
+            </h1>
+
+            <form
+                action="{{ url_for('predict') }}"
+                method="post"
+                class="flex flex-col"
+            >
+                <label for="Provinsi" class="mb-2"
+                    >Provinsi:</label
+                >
+                <select
+                    name="Provinsi"
+                    id="provinsi"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="0" {% if remembered_province == '0' %}selected{% endif %}>Kalimantan Selatan</option>
+                    <option value="1" {% if remembered_province == '1' %}selected{% endif %}>Aceh</option>
+                    <option value="2" {% if remembered_province == '2' %}selected{% endif %}>Bali</option>
+                    <option value="3" {% if remembered_province == '3' %}selected{% endif %}>Banten</option>
+                    <option value="4" {% if remembered_province == '4' %}selected{% endif %}>Bengkulu</option>
+                    <option value="5" {% if remembered_province == '5' %}selected{% endif %}>DI Yogyakarta</option>
+                    <option value="6" {% if remembered_province == '6' %}selected{% endif %}>DKI Jakarta</option>
+                    <option value="7" {% if remembered_province == '7' %}selected{% endif %}>Gorontalo</option>
+                    <option value="8" {% if remembered_province == '8' %}selected{% endif %}>Jambi</option>
+                    <option value="9" {% if remembered_province == '9' %}selected{% endif %}>Jawa Barat</option>
+                    <option value="10" {% if remembered_province == '10' %}selected{% endif %}>Jawa Tengah</option>
+                    <option value="11" {% if remembered_province == '11' %}selected{% endif %}>Jawa Timur</option>
+                    <option value="12" {% if remembered_province == '12' %}selected{% endif %}>Kalimantan Barat</option>
+                    <option value="13" {% if remembered_province == '13' %}selected{% endif %}>Kalimantan Selatan</option>
+                    <option value="14" {% if remembered_province == '14' %}selected{% endif %}>Kalimantan Tengah</option>
+                    <option value="15" {% if remembered_province == '15' %}selected{% endif %}>Kalimantan Timur</option>
+                    <option value="16" {% if remembered_province == '16' %}selected{% endif %}>Kalimantan Utara</option>
+                    <option value="17" {% if remembered_province == '17' %}selected{% endif %}>Kepulauan Bangka Belitung</option>
+                    <option value="18" {% if remembered_province == '18' %}selected{% endif %}>Kepulauan Riau</option>
+                    <option value="19" {% if remembered_province == '19' %}selected{% endif %}>Lampung</option>
+                    <option value="20" {% if remembered_province == '20' %}selected{% endif %}>Maluku</option>
+                    <option value="21" {% if remembered_province == '21' %}selected{% endif %}>Maluku Utara</option>
+                    <option value="22" {% if remembered_province == '22' %}selected{% endif %}>Nusa Tenggara Barat</option>
+                    <option value="23" {% if remembered_province == '23' %}selected{% endif %}>Nusa Tenggara Timur</option>
+                    <option value="24" {% if remembered_province == '24' %}selected{% endif %}>Riau</option>
+                    <option value="25" {% if remembered_province == '25' %}selected{% endif %}>Sulawesi Barat</option>
+                    <option value="26" {% if remembered_province == '26' %}selected{% endif %}>Sulawesi Selatan</option>
+                    <option value="27" {% if remembered_province == '27' %}selected{% endif %}>Sulawesi Tengah</option>
+                    <option value="28" {% if remembered_province == '28' %}selected{% endif %}>Sulawesi Tenggara</option>
+                    <option value="29" {% if remembered_province == '29' %}selected{% endif %}>Sulawesi Utara</option>
+                    <option value="30" {% if remembered_province == '30' %}selected{% endif %}>Sumatera Selatan</option>
+                    <option value="31" {% if remembered_province == '31' %}selected{% endif %}>Sumatera Utara</option>
+                </select>
+
+                <label for="Sektor Industri" class="mt-4 mb-2">Sektor Industri:</label>
+                <select
+                    name="Sektor Industri"
+                    id="sektorIndustri"
+                    class="p-4 bg-gray-100 rounded-md"
+										value="{{ remembered_industrySector }}"
+                >
+                    <option value="0" {% if remembered_industrySector == '0' %}selected{% endif %}>Agriculture</option>
+                    <option value="1" {% if remembered_industrySector == '1' %}selected{% endif %}>Aquaculture</option>
+                    <option value="2" {% if remembered_industrySector == '2' %}selected{% endif %}>Beauty</option>
+                    <option value="3" {% if remembered_industrySector == '3' %}selected{% endif %}>Blockchain</option>
+                    <option value="4" {% if remembered_industrySector == '4' %}selected{% endif %}>Consultant Services</option>
+                    <option value="5" {% if remembered_industrySector == '5' %}selected{% endif %}>Digital Business Development</option>
+                    <option value="6" {% if remembered_industrySector == '6' %}selected{% endif %}>Edutech</option>
+                    <option value="7" {% if remembered_industrySector == '7' %}selected{% endif %}>Electronic</option>
+                    <option value="8" {% if remembered_industrySector == '8' %}selected{% endif %}>Energy Distribution</option>
+                    <option value="9" {% if remembered_industrySector == '9' %}selected{% endif %}>Farms</option>
+                    <option value="10" {% if remembered_industrySector == '10' %}selected{% endif %}>Fashion</option>
+                    <option value="11" {% if remembered_industrySector == '11' %}selected{% endif %}>Fisheries</option>
+                    <option value="12" {% if remembered_industrySector == '12' %}selected{% endif %}>Food and Beverage</option>
+                    <option value="13" {% if remembered_industrySector == '13' %}selected{% endif %}>Food Processing</option>
+                    <option value="14" {% if remembered_industrySector == '14' %}selected{% endif %}>Graphic Design and Creative</option>
+                    <option value="15" {% if remembered_industrySector == '15' %}selected{% endif %}>Green Technology</option>
+                    <option value="16" {% if remembered_industrySector == '16' %}selected{% endif %}>Herbs</option>
+                    <option value="17" {% if remembered_industrySector == '17' %}selected{% endif %}>Hospitality</option>
+                    <option value="18" {% if remembered_industrySector == '18' %}selected{% endif %}>Internet</option>
+                    <option value="19" {% if remembered_industrySector == '19' %}selected{% endif %}>Open Journal System</option>
+                    <option value="20" {% if remembered_industrySector == '20' %}selected{% endif %}>Petshop</option>
+                    <option value="21" {% if remembered_industrySector == '21' %}selected{% endif %}>Production</option>
+                    <option value="22" {% if remembered_industrySector == '22' %}selected{% endif %}>Retail</option>
+                    <option value="23" {% if remembered_industrySector == '23' %}selected{% endif %}>Services</option>
+                    <option value="24" {% if remembered_industrySector == '24' %}selected{% endif %}>Sport and Music</option>
+                    <option value="25" {% if remembered_industrySector == '25' %}selected{% endif %}>Technology and Information</option>
+                    <option value="26" {% if remembered_industrySector == '26' %}selected{% endif %}>Textile</option>
+                </select>
+
+                <button
+                    type="submit"
+                    class="
+                        flex
+                        justify-center
+                        align-center
+                        mt-8
+                        p-4
+                        bg-gradient-to-r
+                        from-green-400
+                        to-blue-500
+                        text-white
+                        rounded-md
+                    "
+                >
+                    PILIH SEKARANG
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-arrow-right ml-4"
+                    >
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </form>
+						<p class="text-1xl mb-2 mt-6">Business Model yang sesuai adalah</p>
+						<p class="text-2xl font-bold">{{ business_model }}</p>
+        </main>
+				{% if business_model == '': %}
+				{% else %}
+        <section class="mt-8 h-full flex-auto rounded-lg md:mt-0 md:ml-8">
+					<img class="absolute w-36 right-8" src="https://play-lh.googleusercontent.com/OD5ioAJIKGm3DuSiUBB38GkIgBoJOzcceCQD2vAGhn5mHTQKVYMATQDbPhfWT1DqSUbF">
+            <div class="bg-white p-16 rounded-lg">
+								<p class="text-3xl font-bold mb-8" style="font-family: 'Times New Roman', Times, serif;">Startup yang Sesuai:</p>
+								{% for startup in matches_startup: %}
+								{% if loop.index == 1: %}
+								<div class="flex">
+									<div class="w-1/4 rounded overflow-hidden shadow-lg py-2 m-3" style="border: 2px dotted black; padding:10px 10px;">
+										<img class="w-full" src={{ startup['image'] }}>
+										<div class="px-6 py-4">
+											<div class="font-bold text-l mb-2 text-center">{{ startup['name'] }}</div>
+											<p class="text-gray-700 text-base">Pendanaan:</p>
+											<p class="text-gray-700 text-base">{{ startup['pendanaan'] }}</p>
+										</div>
+									</div>
+								{% elif loop.index == 5: %}
+								</div>
+								<div class="flex">
+									<div class="w-1/4 rounded overflow-hidden shadow-lg py-2 m-3" style="border: 2px dotted black; padding:10px 10px;">
+										<img class="w-full" src={{ startup['image'] }}>
+										<div class="px-6 py-4">
+											<div class="font-bold text-l mb-2 text-center">{{ startup['name'] }}</div>
+											<p class="text-gray-700 text-base">Pendanaan:</p>
+											<p class="text-gray-700 text-base">{{ startup['pendanaan'] }}</p>
+										</div>
+									</div>
+								{% else %}
+									<div class="w-1/4 rounded overflow-hidden shadow-lg py-2 m-3"  style="border: 2px dotted black; padding:10px 10px;">
+										<img class="w-full" src={{ startup['image'] }}>
+										<div class="px-6 py-4">
+											<div class="font-bold text-l mb-2 text-center">{{ startup['name'] }}</div>
+											<p class="text-gray-700 text-base">Pendanaan:</p>
+											<p class="text-gray-700 text-base">{{ startup['pendanaan'] }}</p>
+										</div>
+									</div>
+									{% endif %}
+								{% endfor %}
+								</div>
+						</div>
+        </section>
+				{% endif %}
+    </body>
+</html>
