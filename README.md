@@ -1,4 +1,4 @@
 ## Matchmaking for AIMEE Apps
 ### Using the Random Forest Method
 Description :<br>
-Proyek ini bertujuan untuk meningkatkan akurasi prediksi pemilihan startup dengan investor melalui penerapan metode Random Forest dalam analisis data. Data yang digunakan mencakup sejumlah variabel seperti sektor industri, dan provinsi untuk menghasilkan suatu model bisnis yang sesuai. Model bisnis tersebut dijadikan acuan untuk pemilihan startup dengan investor.
+The aim of this project is to improve the accuracy of predicting startup selection by investors through the application of the Random Forest method in data analysis. The data used includes several variables such as industry sector and province to generate a suitable business model. This business model serves as a reference for the selection of startups by investors.
